@@ -9,3 +9,7 @@ import ccl::Syntax;
  * - Map regular CST arguments (e.g., *, +, ?) to lists 
  * - Map lexical nodes to Rascal primitive types (bool, int, str)
  */
+ 
+ Resource cst2ast(r) {
+ 	
+ }
