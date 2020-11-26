@@ -9,19 +9,23 @@ module ccl::Syntax
  * - Can there be multiple instances of properties? We assumed no, 
  * so we enforced a specific order. TODO: improve this
  */
+ 
+ //not needed perse but maybe more elegant?
+start syntax Program = Resource;
 
-syntax Resource = "resource" Id "{" ComputingOrStorage+ "}";
+syntax Resource = "resource" Id "{" ComputingOrStorage  "}";
 
-syntax ComputingOrStorage = Computing | Storage | Id;
+
+syntax ComputingOrStorage = {(ComputingInstance | StorageInstance | Id) ","}*;
+
 
 syntax ComputingInstance
 	= "computing" Id "{" "region:" Region "," "OS:" OS ","
-	"CPU:" CPU "," "memory:" Memory "," "IPV6:" IPV6 "," "storage:" storage
-	"}";
+	"CPU:" CPU "," "memory:" Memory "," "IPV6:" IPV6 "," "storage:" Storage "}";
 
 syntax StorageInstance
 	= "storage" Id "{" "region:" Region "," "engine:" Engine ","
-	"CPU:" CPU "," "memory:" Memory "," "IPV6:" IPV6 "," "storage:" storage
+	"CPU:" CPU "," "memory:" Memory "," "IPV6:" IPV6 "," "storage:" Storage
 	"}";
 
 syntax IPV6 = "yes" | "no";
