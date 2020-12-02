@@ -1,0 +1,18 @@
+resource my_cluster {
+	storage my_db {
+		region: Bogota,
+		engine: MySQL,
+		CPU: 2 cores,
+		memory: 2 GB,
+		IPV6: no,
+		storage; BLS of 16 GB
+	},
+	storage my_db2 {
+		region: Bogota,
+		engine: MySQL,
+		CPU: 2 cores,
+		memory: 2 GB,
+		IPV6: no,
+		storage; BLS of 16 GB
+	}
+}
