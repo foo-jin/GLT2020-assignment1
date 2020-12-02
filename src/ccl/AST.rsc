@@ -10,8 +10,8 @@ module ccl::AST
  data Resource = resource(str Id, list[Instance] instances);
  
  data Instance
- 	= storage(list[Property])
- 	| computing(list[Property])
+ 	= storage(str Id, list[Property])
+ 	| computing(str Id, list[Property])
  	| ref(str Id);
  	
 data Property
@@ -20,7 +20,7 @@ data Property
 	| engine(Engine e)
 	| cpu(int cores)
 	| memory(int mem)
-	| ipv6(bool b)
+	| ipv6(IPV6 yn)
 	| storage(StorageKind s, int amount);
 	
 data IPV6

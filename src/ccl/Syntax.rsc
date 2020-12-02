@@ -11,15 +11,17 @@ module ccl::Syntax
  */
  
  //not needed perse but maybe more elegant?
-start syntax Program = prog: Resource*;
+start syntax Program = prog: {Resource ","}* Resource;
 
-syntax Resource = resource: "resource" Id "{" {Instance ","}+ "}";
+syntax Resource = resource: "resource" Id "{" {Instance ","}* Instance "}";
 
 
 syntax Instance
-	= computing: "computing" Id "{" {Property ","}+ "}"
-	| storage: "storage" Id "{" {Property ","}+ "}"
+	= computing: "computing" Id Props
+	| storage: "storage" Id Props
 	| ref: Id;
+	
+syntax Props = "{" {Property ","}* Property "}";
 	
 syntax Property
 	= region: "region:" Region
