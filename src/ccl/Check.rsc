@@ -43,4 +43,8 @@ bool validStorageSize(Prog p) {
 }
 
 
-
+bool validMemSize(Prog p) {
+	for (/memory(int mem) <- p) if (mem < 0 || mem > 64)
+		return false;
+	return true;
+}

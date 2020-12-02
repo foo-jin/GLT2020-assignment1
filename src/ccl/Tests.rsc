@@ -8,7 +8,7 @@ import IO;
 
 
 void main() {
-	r = parserCCL(|project://glt2020-ccl/testfiles/test-uniquelable.ccl|);
+	r = parserCCL(|project://glt2020-ccl/testfiles/test-uniquelabel.ccl|);
 	ast = cst2ast(r);
 	b = uniqueLabels(ast);
 	println("unique labels: <b>");
