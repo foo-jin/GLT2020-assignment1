@@ -13,4 +13,4 @@ import IO;
 //Tree parserCCL(loc file) = parse(#Resource, readFile(file));
 //Tree parserCCL(loc file) = parse(#start[Program], readFile(file));
 //I think we need to use the bottom one, it does not give unknown errors in the console
-Tree parserCCL(loc file) = parse(#Resource, file);
+Program parserCCL(loc file) = parse(#Resource, file);

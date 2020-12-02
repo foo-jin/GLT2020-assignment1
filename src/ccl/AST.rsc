@@ -15,13 +15,13 @@ module ccl::AST
  	| ref(str Id);
  	
 data Property
-	= region(Region)
-	| os(OS)
-	| engine(Engine)
+	= region(Region r)
+	| os(OS os)
+	| engine(Engine e)
 	| cpu(int cores)
 	| memory(int mem)
-	| ipv6(bool)
-	| storage(StorageKind, int amount);
+	| ipv6(bool b)
+	| storage(StorageKind s, int amount);
 	
 data IPV6
 	= yes()

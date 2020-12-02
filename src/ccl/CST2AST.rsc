@@ -2,6 +2,7 @@ module ccl::CST2AST
 
 import ccl::AST;
 import ccl::Syntax;
+import ParseTree;
 
 /*
  * -Implement a mapping from concrete syntax trees (CSTs) to abstract syntax trees (ASTs)
@@ -10,6 +11,6 @@ import ccl::Syntax;
  * - Map lexical nodes to Rascal primitive types (bool, int, str)
  */
  
- AST::Prog implode(Syntax::Prog p) = implode(#AST::Prog, p);
+Prog implode(p) = implode(#Prog, p);
  
- AST::Prog cst2ast(Syntax::Prog p) = implode(p);
+Prog cst2ast(Program p) = implode(p);
