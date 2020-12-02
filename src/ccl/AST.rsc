@@ -5,15 +5,29 @@ module ccl::AST
  *
  * - make sure there is an almost one-to-one correspondence with the grammar (Syntax.rsc)
  */
+ data Prog = prog(list[Resource] resources);
+ 
  data Resource = resource(str Id, list[Instance] instances);
  
  data Instance
- 	= storage(Region reg, Engine eng, int cores,
- 		int memory, bool IPV6, StorageType sType, int sQuantity)
- 	| computing(Region reg, OS os, int cores,
- 		int memory, bool IPV6, StorageType sType, int sQuantity);
- 
- data StorageType 
+ 	= storage(list[Property])
+ 	| computing(list[Property])
+ 	| ref(str Id);
+ 	
+data Property
+	= region(Region)
+	| os(OS)
+	| engine(Engine)
+	| cpu(int cores)
+	| memory(int mem)
+	| ipv6(bool)
+	| storage(StorageKind, int amount);
+	
+data IPV6
+	= yes()
+	| no();
+
+ data StorageKind
 	= bls()
 	| ssd();
  

@@ -11,54 +11,56 @@ module ccl::Syntax
  */
  
  //not needed perse but maybe more elegant?
-start syntax Program = Resource;
+start syntax Program = prog: Resource*;
 
-syntax Resource = "resource" Id "{" ComputingOrStorage  "}";
-
-
-syntax ComputingOrStorage = {(ComputingInstance | StorageInstance | Id) ","}*;
+syntax Resource = resource: "resource" Id "{" {Instance ","}+ "}";
 
 
-syntax ComputingInstance
-	= "computing" Id "{" "region:" Region "," "OS:" OS ","
-	"CPU:" CPU "," "memory:" Memory "," "IPV6:" IPV6 "," "storage:" Storage "}";
+syntax Instance
+	= computing: "computing" Id "{" {Property ","}+ "}"
+	| storage: "storage" Id "{" {Property ","}+ "}"
+	| ref: Id;
+	
+syntax Property
+	= region: "region:" Region
+	| os: "OS:" OS
+	| engine: "engine:" Engine
+	| cpu: "CPU:" CPU
+	| memory: "memory:" Memory
+	| ipv6: "IPV6:" IPV6
+	| storage: "storage:" StorageKind "of" Numeral "GB";
 
-syntax StorageInstance
-	= "storage" Id "{" "region:" Region "," "engine:" Engine ","
-	"CPU:" CPU "," "memory:" Memory "," "IPV6:" IPV6 "," "storage:" Storage
-	"}";
+syntax IPV6 
+	= yes: "yes"
+	| no: "no";
 
-syntax IPV6 = "yes" | "no";
-
-syntax Storage = StorageType "of" Numeral "GB";
-
-syntax StorageType 
-	= "BLS"
-	| "SSD";
+syntax StorageKind 
+	= bls: "BLS"
+	| ssd: "SSD";
 
 syntax Memory = Numeral "GB";
 
 syntax CPU = Numeral "cores";
 
 syntax Engine
-	= "MySQL"
-	| "PostgreSQL"
-	| "MariaDB"
-	| "Oracle"
-	| "SQL Server";
+	= mySQL: "MySQL"
+	| postgreSQL: "PostgreSQL"
+	| mariaDB: "MariaDB"
+	| oracle: "Oracle"
+	| sqlServer: "SQL Server";
 
 syntax OS 
-	= "Linux"
-	| "Red Hat Enterprise"
-	| "Ubuntu Server"
-	| "Windows Server 2019";
+	= linux: "Linux"
+	| rhe: "Red Hat Enterprise"
+	| ubuntu: "Ubuntu Server"
+	| windows: "Windows Server 2019";
 	
 syntax Region
-	= "California"
-	| "Cape Town"
-	| "Frankfurt"
-	| "Bogota"
-	| "Seoul";
+	= california: "California"
+	| capeTown: "Cape Town"
+	| frankfurt: "Frankfurt"
+	| bogota: "Bogota"
+	| seoul: "Seoul";
 	
 lexical Numeral = [0-9]+;
 

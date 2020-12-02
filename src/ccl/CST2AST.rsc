@@ -10,6 +10,6 @@ import ccl::Syntax;
  * - Map lexical nodes to Rascal primitive types (bool, int, str)
  */
  
- Resource cst2ast(r) {
- 	
- }
+ AST::Prog implode(Syntax::Prog p) = implode(#AST::Prog, p);
+ 
+ AST::Prog cst2ast(Syntax::Prog p) = implode(p);
