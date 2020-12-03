@@ -7,13 +7,12 @@ resource my_cluster {
 		IPV6: no,
 		storage: BLS of 16 GB
 	},
-	computing my_server {
+	storage my_db {
 		region: Bogota,
-		OS: Linux,
+		engine: MySQL,
 		CPU: 4 cores,
-		memory: 8 GB,
-		IPV6: yes,
-		storage: SSD of 256 GB
-	},
-	my_server
+		memory: 2 GB,
+		IPV6: no,
+		storage: BLS of 16 GB
+	}
 }

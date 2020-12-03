@@ -5,7 +5,7 @@ resource my_cluster {
 		CPU: 2 cores,
 		memory: 2 GB,
 		IPV6: no,
-		storage; BLS of 16 GB
+		storage: BLS of 16 GB
 	},
 	computing my_server {
 		region: Frankfurt,

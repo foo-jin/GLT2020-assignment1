@@ -1,11 +1,11 @@
 resource my_cluster {
 	storage my_db {
-		region: Bogota,
+		region: Tilburg,
 		engine: MySQL,
 		CPU: 2 cores,
 		memory: 2 GB,
 		IPV6: no,
-		storage; BLS of 16 GB
+		storage: BLS of 16 GB
 	},
 	computing my_server {
 		region: Tilburg,
