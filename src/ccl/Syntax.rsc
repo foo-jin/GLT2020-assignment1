@@ -4,13 +4,6 @@ module ccl::Syntax
  * Define concrete syntax for CCL. The language's specification is available in the PDF (Section 3)
 */
 
-/*
- * Concrete syntax defined. A few aspects were unclear:
- * - Can there be multiple instances of properties? We assumed no, 
- * so we enforced a specific order. TODO: improve this
- */
- 
- //not needed perse but maybe more elegant?
 start syntax Program = prog: {Resource ","}*;
 
 syntax Resource = resource: "resource" Id "{" {Instance ","}* "}";

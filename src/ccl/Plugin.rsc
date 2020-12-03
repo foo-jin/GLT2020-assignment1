@@ -3,6 +3,9 @@ module ccl::Plugin
 import util::IDE;
 import ccl::Parser;
 import ccl::CST2AST;
+import ccl::Check;
+
+import ParseTree;
 
 /*
 * This function is defined to test the functionality of the whole assignment. It receives a file path as a parameter and returns true if the program satisfies the specification or false otherwise.
@@ -15,7 +18,7 @@ bool checkWellformedness(loc fil) {
 	// Transform the parse tree into an abstract syntax tree
 	&T ast = cst2ast(resource);
 	// Check the well-formedness of the program
-	return checkCloudConfiguration(ResourceAST);
+	return checkCloudConfiguration(ast);
 }
 
 /*

@@ -16,7 +16,7 @@ resource my_cluster {
 		storage: SSD of 256 GB
 	},
 	my_server
-}
+},
 
 resource my_cluster2 {
 	storage my_db {
