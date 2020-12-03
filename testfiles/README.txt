@@ -42,3 +42,7 @@ test-uniquelabel.ccl|This testfile is used to show that the labels of
 					|each MI within a storage should be unique, in 
 					|this case the labels given are both "my_db" so 
 					|it should fail.
+					|
+test-multiple.ccl	|This testfile is used to show that it is possible
+					|to have multiple resources in one ccl file.
+					|
